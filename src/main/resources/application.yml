@@ -1,0 +1,19 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: "@project.name@"
+  data:
+    mongodb:
+      user: skumar
+      password: skumar
+      uri: mongodb://localhost:27017/estore
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 86044172037-a88rsjt8gamjghg2o5hducqp71e2fhit.apps.googleusercontent.com
+            client-secret: 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
