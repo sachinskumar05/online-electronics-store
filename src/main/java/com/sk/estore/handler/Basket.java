@@ -2,17 +2,22 @@ package com.sk.estore.handler;
 
 
 import com.sk.estore.persistence.data.Item;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Document("Baskets")
 @Component
-public class Greeting {
+public class Basket {
 
-
+    @Id
     private long id= System.nanoTime();
+
     private List<Item> itemList = new ArrayList<>();
+
     private List<String> itemIds = new ArrayList<>();
     private String content;
 

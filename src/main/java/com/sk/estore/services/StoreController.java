@@ -1,6 +1,6 @@
 package com.sk.estore.services;
 
-import com.sk.estore.handler.Greeting;
+import com.sk.estore.handler.Basket;
 import com.sk.estore.persistence.data.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,23 +17,23 @@ public class StoreController {
     @Autowired
     private MongoPersistenceService mongoPersistenceService;
 
-    @GetMapping("/greeting")
+    @GetMapping("/basket")
     public String greetingForm(Model model) {
         List<Item> itemList = mongoPersistenceService.getAllItems();
         model.addAttribute("itemList", itemList);
-        model.addAttribute("greeting", new Greeting());
-        return "greeting";
+        model.addAttribute("basket", new Basket());
+        return "basket";
     }
 
-    @PostMapping("/greeting")
-    public String greetingSubmit(@ModelAttribute Greeting greeting, Model model) {
-        model.addAttribute("greeting", greeting);
+    @PostMapping("/basket")
+    public String greetingSubmit(@ModelAttribute Basket basket, Model model) {
+        model.addAttribute("basket", basket);
         return "result";
     }
 
     @PostMapping("/owner")
-    public String ownerForm(@ModelAttribute Greeting greeting, Model model) {
-        model.addAttribute("greeting", greeting);
+    public String ownerForm(@ModelAttribute Basket basket, Model model) {
+        model.addAttribute("basket", basket);
         return "result";
     }
 }
